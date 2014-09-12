@@ -33,9 +33,10 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_columnSpan="2"
-
             android:layout_gravity="fill_horizontal"
+
             android:inputType="textMultiLine"
+            android:layoutMode="opticalBounds"
             android:minLines="3" />
 
         <!-- Generate button -->
@@ -45,6 +46,7 @@
             android:layout_height="wrap_content"
             android:layout_columnSpan="2"
             android:layout_gravity="fill_horizontal"
+            android:layoutMode="opticalBounds"
 
             android:text="@string/fragment_privatekey_button" />
 
