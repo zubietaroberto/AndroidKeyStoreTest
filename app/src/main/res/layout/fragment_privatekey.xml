@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    android:fillViewport="true">
+
+    <GridLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:columnCount="2"
+        android:paddingBottom="@dimen/activity_vertical_margin"
+
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:paddingTop="@dimen/activity_vertical_margin"
+        android:useDefaultMargins="true">
+
+        <!-- Line -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_columnSpan="2"
+
+            android:text="@string/fragment_privatekey_initialmessage" />
+
+        <!-- Line -->
+        <EditText
+            android:id="@+id/editText1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_columnSpan="2"
+
+            android:layout_gravity="fill_horizontal"
+            android:inputType="textMultiLine"
+            android:minLines="3" />
+
+        <!-- Generate button -->
+        <Button
+            android:id="@+id/button1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_columnSpan="2"
+            android:layout_gravity="fill_horizontal"
+
+            android:text="@string/fragment_privatekey_button" />
+
+        <!-- Space -->
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_columnSpan="2" />
+
+        <!-- Line -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:text="@string/fragment_privatekey_encryptedmessage" />
+
+        <TextView
+            android:id="@+id/text1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+
+            android:layout_gravity="fill_horizontal"
+            android:text="@string/fragment_privatekey_encryptedmessage_empty" />
+
+        <!-- Line -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:text="@string/fragment_privatekey_publickey" />
+
+        <TextView
+            android:id="@+id/text2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+
+            android:layout_gravity="fill_horizontal"
+            android:text="@string/fragment_privatekey_encryptedmessage_empty" />
+
+        <!-- Line -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:text="@string/fragment_privatekey_private" />
+
+        <TextView
+            android:id="@+id/text3"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+
+            android:layout_gravity="fill_horizontal"
+            android:text="@string/fragment_privatekey_private_empty" />
+
+        <!-- Line -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:text="@string/fragment_privatekey_apkkey" />
+
+        <TextView
+            android:id="@+id/text4"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+
+            android:layout_gravity="fill_horizontal"
+            android:text="@string/fragment_privatekey_apkkey_empty" />
+
+    </GridLayout>
+</ScrollView>

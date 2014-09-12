@@ -5,4 +5,17 @@
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
 
+    <string name="nomessage">None</string>
+
+    <string name="fragment_privatekey_button">Generate key</string>
+    <string name="fragment_privatekey_initialmessage">Initial Message</string>
+    <string name="fragment_privatekey_encryptedmessage">Encrypted</string>
+    <string name="fragment_privatekey_encryptedmessage_empty">@string/nomessage</string>
+    <string name="fragment_privatekey_publickey">Public Key</string>
+    <string name="fragment_privatekey_publickey_empty">@string/nomessage</string>
+    <string name="fragment_privatekey_apkkey">APK Key</string>
+    <string name="fragment_privatekey_apkkey_empty">@string/nomessage</string>
+    <string name="fragment_privatekey_private">Private Key</string>
+    <string name="fragment_privatekey_private_empty">@string/nomessage</string>
+
 </resources>
