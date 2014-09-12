@@ -17,5 +17,7 @@
     <string name="fragment_privatekey_apkkey_empty">@string/nomessage</string>
     <string name="fragment_privatekey_private">Private Key</string>
     <string name="fragment_privatekey_private_empty">@string/nomessage</string>
+    <string name="fragment_privatekey_decrypt">Decrypted</string>
+    <string name="fragment_privatekey_decrypt_empty">@string/nomessage</string>
 
 </resources>

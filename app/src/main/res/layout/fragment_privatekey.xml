@@ -74,10 +74,25 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
 
-            android:text="@string/fragment_privatekey_publickey" />
+            android:text="@string/fragment_privatekey_decrypt" />
 
         <TextView
             android:id="@+id/text2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+
+            android:layout_gravity="fill_horizontal"
+            android:text="@string/fragment_privatekey_decrypt_empty" />
+
+        <!-- Line -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:text="@string/fragment_privatekey_publickey" />
+
+        <TextView
+            android:id="@+id/text3"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
 
@@ -92,7 +107,7 @@
             android:text="@string/fragment_privatekey_private" />
 
         <TextView
-            android:id="@+id/text3"
+            android:id="@+id/text4"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
 
@@ -107,7 +122,7 @@
             android:text="@string/fragment_privatekey_apkkey" />
 
         <TextView
-            android:id="@+id/text4"
+            android:id="@+id/text5"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
 

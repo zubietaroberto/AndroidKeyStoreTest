@@ -4,22 +4,24 @@ import android.content.Context;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.Signature;
-import android.security.KeyPairGeneratorSpec;
 
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
+import java.security.InvalidKeyException;
 import java.security.KeyPair;
 import java.security.KeyPairGenerator;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-import java.security.SecureRandom;
+import java.security.PrivateKey;
+import java.security.PublicKey;
 import java.security.cert.CertificateException;
 import java.security.cert.CertificateFactory;
 import java.security.cert.X509Certificate;
-import java.security.spec.RSAKeyGenParameterSpec;
 
-import javax.crypto.KeyGenerator;
-import javax.crypto.SecretKey;
+import javax.crypto.BadPaddingException;
+import javax.crypto.Cipher;
+import javax.crypto.IllegalBlockSizeException;
+import javax.crypto.NoSuchPaddingException;
 
 /**
  * Created by RobertoEduardo on 2014-09-12.
@@ -83,5 +85,39 @@ public class KeyUtils {
         keyGenerator.initialize(keySize);
 
         return keyGenerator.generateKeyPair();
+    }
+
+    public static byte[] encryptRSA(final byte[] pInput, final PublicKey pKey)
+            throws InvalidKeyException, BadPaddingException, IllegalBlockSizeException {
+
+        try {
+
+            final Cipher encCipher = Cipher.getInstance("RSA");
+            encCipher.init(Cipher.ENCRYPT_MODE, pKey);
+            return encCipher.doFinal(pInput);
+
+        } catch (NoSuchAlgorithmException | NoSuchPaddingException e) {
+
+            //Should never happen. Fast Fail.
+            e.printStackTrace();
+            throw new RuntimeException(e);
+        }
+    }
+
+    public static byte[] decryptRSA(final byte[] pInput, final PrivateKey pKey)
+            throws InvalidKeyException, BadPaddingException, IllegalBlockSizeException {
+
+        try {
+
+            final Cipher decCipher = Cipher.getInstance("RSA");
+            decCipher.init(Cipher.DECRYPT_MODE, pKey);
+            return decCipher.doFinal(pInput);
+
+        } catch (NoSuchAlgorithmException | NoSuchPaddingException e) {
+
+            //Should never happen. Fast Fail.
+            e.printStackTrace();
+            throw new RuntimeException(e);
+        }
     }
 }
