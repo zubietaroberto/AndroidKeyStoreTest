@@ -48,6 +48,9 @@ public class PrivateKeyFragment extends Fragment {
     @InjectView(R.id.text5)
     public TextView mTextApk;
 
+    @InjectView(R.id.text_sha256)
+    public TextView mTextHash;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         final View view = inflater.inflate(R.layout.fragment_privatekey, container, false);
@@ -72,12 +75,20 @@ public class PrivateKeyFragment extends Fragment {
     @OnClick(R.id.button1)
     public void generateKey() {
         try {
+
+            // Build the key
             final KeyPair key = KeyUtils.generateRSAKey();
+            final byte[] publicKey = key.getPublic().getEncoded();
+            final byte[] privateKey = key.getPrivate().getEncoded();
 
             // Display cryptographic data
-            mTextPublicKey.setText(KeyUtils.byteArrayToHexString(key.getPublic().getEncoded()));
-            mTextPrivateKey.setText(KeyUtils.byteArrayToHexString(key.getPrivate().getEncoded()));
+            mTextPublicKey.setText(KeyUtils.byteArrayToHexString(publicKey));
+            mTextPrivateKey.setText(KeyUtils.byteArrayToHexString(privateKey));
             mTextApk.setText(KeyUtils.getCertificateSHA1Fingerprint(getActivity()));
+
+            //Public Key SHA-256
+            final byte[] sha256 = KeyUtils.sha256(publicKey);
+            mTextHash.setText(KeyUtils.byteArrayToHexString(sha256));
 
             final String text = mEditText.getText().toString();
             if (!TextUtils.isEmpty(text)){

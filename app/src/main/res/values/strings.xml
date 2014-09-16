@@ -19,5 +19,7 @@
     <string name="fragment_privatekey_private_empty">@string/nomessage</string>
     <string name="fragment_privatekey_decrypt">Decrypted</string>
     <string name="fragment_privatekey_decrypt_empty">@string/nomessage</string>
+    <string name="fragment_privatekey_sha256">Public Key Hash</string>
+    <string name="fragment_privatekey_sha256_empty">@string/nomessage</string>
 
 </resources>

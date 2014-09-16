@@ -120,4 +120,12 @@ public class KeyUtils {
             throw new RuntimeException(e);
         }
     }
+
+    public static byte[] sha256(final byte[] pInput)
+            throws NoSuchAlgorithmException {
+
+        final MessageDigest digest = MessageDigest.getInstance("SHA-256");
+        digest.reset();
+        return digest.digest(pInput);
+    }
 }
