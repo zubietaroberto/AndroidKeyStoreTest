@@ -102,8 +102,8 @@ public class PrivateKeyFragment extends Fragment {
                 mTextDecrypted.setText(new String(decData));
             }
 
-        } catch (NoSuchAlgorithmException | CertificateException | InvalidKeyException
-                | BadPaddingException | IllegalBlockSizeException e) {
+        } catch (CertificateException | InvalidKeyException | BadPaddingException
+                | IllegalBlockSizeException e) {
 
             //Should never happen
             e.printStackTrace();

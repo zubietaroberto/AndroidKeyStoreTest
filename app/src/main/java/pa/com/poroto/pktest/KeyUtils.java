@@ -47,7 +47,7 @@ public class KeyUtils {
     Source: http://stackoverflow.com/a/22506133/742188
      */
     public static String getCertificateSHA1Fingerprint(Context pContext)
-            throws CertificateException, NoSuchAlgorithmException {
+            throws CertificateException{
 
         //Get the Package Manager
         final PackageManager pm = pContext.getPackageManager();
@@ -73,18 +73,33 @@ public class KeyUtils {
         final X509Certificate c = (X509Certificate) cf.generateCertificate(input);
 
         //Get the certificate's SHA1 signature
-        final MessageDigest md = MessageDigest.getInstance("SHA1");
-        final byte[] publicKey = md.digest(c.getEncoded());
-        return byteArrayToHexString(publicKey);
+        try {
+
+            final MessageDigest md = MessageDigest.getInstance("SHA1");
+            final byte[] publicKey = md.digest(c.getEncoded());
+            return byteArrayToHexString(publicKey);
+        } catch (NoSuchAlgorithmException e) {
+
+            //Should never happen. Fast Fail
+            e.printStackTrace();
+            throw new RuntimeException(e);
+        }
     }
 
-    public static KeyPair generateRSAKey() throws NoSuchAlgorithmException {
+    public static KeyPair generateRSAKey() {
         final int keySize = 2048;
+        try {
 
-        final KeyPairGenerator keyGenerator = KeyPairGenerator.getInstance("RSA");
-        keyGenerator.initialize(keySize);
+            final KeyPairGenerator keyGenerator = KeyPairGenerator.getInstance("RSA");
+            keyGenerator.initialize(keySize);
 
-        return keyGenerator.generateKeyPair();
+            return keyGenerator.generateKeyPair();
+        } catch (NoSuchAlgorithmException e) {
+
+            //Should never happen. Fast Fail
+            e.printStackTrace();
+            throw new RuntimeException(e);
+        }
     }
 
     public static byte[] encryptRSA(final byte[] pInput, final PublicKey pKey)
@@ -121,11 +136,19 @@ public class KeyUtils {
         }
     }
 
-    public static byte[] sha256(final byte[] pInput)
-            throws NoSuchAlgorithmException {
+    public static byte[] sha256(final byte[] pInput){
 
-        final MessageDigest digest = MessageDigest.getInstance("SHA-256");
-        digest.reset();
-        return digest.digest(pInput);
+        try {
+
+            final MessageDigest digest = MessageDigest.getInstance("SHA-256");
+            digest.reset();
+            return digest.digest(pInput);
+
+        } catch (NoSuchAlgorithmException e) {
+
+            //Should never happen. Fast Fail
+            e.printStackTrace();
+            throw new RuntimeException(e);
+        }
     }
 }
