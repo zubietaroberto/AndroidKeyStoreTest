@@ -1,8 +1,33 @@
 <resources>
 
-    <!-- Base application theme. -->
-    <style name="AppTheme" parent="android:Theme.Holo.Light.DarkActionBar">
-        <!-- Customize your theme here. -->
+    <!-- App Themes -->
+    <style name="AppBaseTheme" parent="android:Theme.Holo.Light.DarkActionBar" />
+
+    <style name="AppTheme" parent="AppBaseTheme">
+        <item name="android:textViewStyle">@style/CustomTextView</item>
+    </style>
+
+    <!-- Containers -->
+    <style name="Container" />
+
+    <style name="Container.Fragment" >
+        <item name="android:paddingBottom">@dimen/activity_vertical_margin</item>
+        <item name="android:paddingLeft">@dimen/activity_horizontal_margin</item>
+        <item name="android:paddingRight">@dimen/activity_horizontal_margin</item>
+        <item name="android:paddingTop">@dimen/activity_vertical_margin</item>
+    </style>
+
+    <!-- Custom Widgets -->
+    <style name="CustomTextView" parent="android:Widget.TextView">
+        <item name="android:textAppearance">@style/CustomTextAppearance</item>
+    </style>
+
+
+    <!-- Text Appearance -->
+    <style name="CustomTextAppearance" parent="android:TextAppearance" />
+
+    <style name="CustomTextAppearance.Mono">
+        <item name="android:typeface">monospace</item>
     </style>
 
 </resources>

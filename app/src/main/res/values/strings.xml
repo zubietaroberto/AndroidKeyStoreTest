@@ -22,4 +22,6 @@
     <string name="fragment_privatekey_sha256">Public Key Hash</string>
     <string name="fragment_privatekey_sha256_empty">@string/nomessage</string>
 
+    <string name="placeholder_long">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eleifend est eu nibh pellentesque accumsan. Quisque vel lacus eu lorem maximus lobortis. Curabitur et orci ultrices, fermentum urna quis, scelerisque nulla. Nam dapibus sapien ut est imperdiet eleifend. Donec porta risus non efficitur vestibulum. Cras ex orci, molestie et justo vitae, placerat maximus orci. Curabitur diam velit, imperdiet eu velit a, ultrices gravida nibh.</string>
+
 </resources>
