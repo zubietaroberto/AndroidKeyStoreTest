@@ -3,23 +3,14 @@ package pa.com.poroto.pktest;
 import android.app.Fragment;
 import android.os.Bundle;
 import android.text.TextUtils;
-import android.util.Base64;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import java.security.InvalidKeyException;
-import java.security.KeyPair;
-import java.security.NoSuchAlgorithmException;
+import java.security.PublicKey;
 import java.security.cert.CertificateException;
-
-import javax.crypto.BadPaddingException;
-import javax.crypto.Cipher;
-import javax.crypto.IllegalBlockSizeException;
-import javax.crypto.NoSuchPaddingException;
-import javax.crypto.spec.SecretKeySpec;
 
 import butterknife.ButterKnife;
 import butterknife.InjectView;
@@ -77,33 +68,31 @@ public class PrivateKeyFragment extends Fragment {
         try {
 
             // Build the key
-            final KeyPair key = KeyUtils.generateRSAKey();
-            final byte[] publicKey = key.getPublic().getEncoded();
-            final byte[] privateKey = key.getPrivate().getEncoded();
+            final String alias = "my_alias_2";
+            final PublicKey publicKey = KeyStoreWrapper.generateRSA(getActivity(), alias);
 
             // Display cryptographic data
-            mTextPublicKey.setText(KeyUtils.byteArrayToHexString(publicKey));
-            mTextPrivateKey.setText(KeyUtils.byteArrayToHexString(privateKey));
+            mTextPublicKey.setText(KeyUtils.byteArrayToHexString(publicKey.getEncoded()));
+            mTextPrivateKey.setText(R.string.fragment_privatekey_private_hidden);
             mTextApk.setText(KeyUtils.getCertificateSHA1Fingerprint(getActivity()));
 
             //Public Key SHA-256
-            final byte[] sha256 = KeyUtils.sha256(publicKey);
+            final byte[] sha256 = KeyUtils.sha256(publicKey.getEncoded());
             mTextHash.setText(KeyUtils.byteArrayToHexString(sha256));
 
             final String text = mEditText.getText().toString();
-            if (!TextUtils.isEmpty(text)){
+            if (!TextUtils.isEmpty(text)) {
 
                 //Encode String
-                final byte[] encData = KeyUtils.encryptRSA(text.getBytes(), key.getPublic());
+                final byte[] encData = KeyStoreWrapper.encrypt(text.getBytes(), alias);
                 mTextEncrypted.setText(KeyUtils.byteArrayToHexString(encData));
 
                 //Decode String
-                final byte[] decData = KeyUtils.decryptRSA(encData, key.getPrivate());
+                final byte[] decData = KeyStoreWrapper.decrypt(encData, alias);
                 mTextDecrypted.setText(new String(decData));
             }
 
-        } catch (CertificateException | InvalidKeyException | BadPaddingException
-                | IllegalBlockSizeException e) {
+        } catch (CertificateException e) {
 
             //Should never happen
             e.printStackTrace();

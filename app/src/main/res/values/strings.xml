@@ -17,6 +17,7 @@
     <string name="fragment_privatekey_apkkey_empty">@string/nomessage</string>
     <string name="fragment_privatekey_private">Private Key</string>
     <string name="fragment_privatekey_private_empty">@string/nomessage</string>
+    <string name="fragment_privatekey_private_hidden">Private key is hidden inside the KeyStore. Cannot be read</string>
     <string name="fragment_privatekey_decrypt">Decrypted</string>
     <string name="fragment_privatekey_decrypt_empty">@string/nomessage</string>
     <string name="fragment_privatekey_sha256">Public Key Hash</string>
