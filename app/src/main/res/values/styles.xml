@@ -1,7 +1,7 @@
 <resources>
 
     <!-- App Themes -->
-    <style name="AppBaseTheme" parent="android:Theme.Holo.Light.DarkActionBar" />
+    <style name="AppBaseTheme" parent="Theme.AppCompat.Light.DarkActionBar" />
 
     <style name="AppTheme" parent="AppBaseTheme">
         <item name="android:textViewStyle">@style/CustomTextView</item>
@@ -24,7 +24,7 @@
 
 
     <!-- Text Appearance -->
-    <style name="CustomTextAppearance" parent="android:TextAppearance" />
+    <style name="CustomTextAppearance" parent="TextAppearance.AppCompat" />
 
     <style name="CustomTextAppearance.Mono">
         <item name="android:typeface">monospace</item>
