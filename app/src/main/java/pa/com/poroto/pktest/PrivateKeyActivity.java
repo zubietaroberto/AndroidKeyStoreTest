@@ -1,12 +1,12 @@
 package pa.com.poroto.pktest;
 
 import android.os.Bundle;
-import android.support.v7.app.ActionBarActivity;
+import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 
 
-public class PrivateKeyActivity extends ActionBarActivity {
+public class PrivateKeyActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
